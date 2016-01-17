@@ -24,10 +24,10 @@ public class Main {
     staticFileLocation("/public");
 
     get("/hello", (req, res) -> {
-      RelativisticModel.select();
-      Amount<Mass> m = Amount.valueOf("12 GeV").to(KILOGRAM);
-      return "E=mc^2: 12 GeV = " + m.toString();
-    });
+          RelativisticModel.select();
+          Amount<Mass> m = Amount.valueOf("12 GeV").to(KILOGRAM);
+          return "E=mc^2: 12 GeV = " + m.toString();
+        });
 
     get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
@@ -40,7 +40,7 @@ public class Main {
       Connection connection = null;
       Map<String, Object> attributes = new HashMap<>();
       try {
-        connection = DatabaseUrl.extract().getConnection();
+        connection = getConnection();
 
         Statement stmt = connection.createStatement();
         stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
@@ -60,8 +60,22 @@ public class Main {
       } finally {
         if (connection != null) try{connection.close();} catch(SQLException e){}
       }
-    }, new FreeMarkerEngine());
+  }, new FreeMarkerEngine());
 
+  }
+
+  private static Connection getConnection() throws URISyntaxException, SQLException {
+    URI dbUri = new URI(System.getenv("DATABASE_URL"));
+    int port = dbUri.getPort();
+    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ":" + port + dbUri.getPath();
+
+    if (dbUri.getUserInfo() != null) {
+      String username = dbUri.getUserInfo().split(":")[0];
+      String password = dbUri.getUserInfo().split(":")[1];
+      return DriverManager.getConnection(dbUrl, username, password);
+    } else {
+      return DriverManager.getConnection(dbUrl);
+    }
   }
 
 }
