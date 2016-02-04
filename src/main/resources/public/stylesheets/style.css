@@ -1,0 +1,25 @@
+#mainbg {
+     background-image: url("clayandhands.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+#landingdiv{
+	background-color: white;
+	background: rgba(255, 255, 255, 0.6)
+ 	margin: auto;
+    	width: 80%;
+    	border: 3px solid white;
+    	padding: 10px;
+	text-align: center;
+}
+
+#landingbutton{
+	align:center;
+}
+
+h1{
+	font-family: "Verdana", sans-serif;
+	letter-spacing: 3px;
+	text-shadow: 1px 1px #FFF5EE;
+}
