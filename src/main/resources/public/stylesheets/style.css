@@ -23,6 +23,17 @@ a{
   background-color: #fff;
   border: 1px solid #fff;
 }
+
+/*Add Events button*/
+.btn-events,
+.btn-events:hover,
+.btn-events:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+  margin-left: 10em;
+}
  /*Custom Header*/
  h1.title-header{
      font-family: Tahoma, Geneva, sans-serif;
@@ -41,6 +52,7 @@ a{
     
 }
 
+/*Background for non-cover pages*/
 .other{
     
     background: url(../img/fabric_texture.jpg) no-repeat center center fixed; 
@@ -134,7 +146,7 @@ body {
   border-bottom-color: #fff;
 }
 
-/*Masthead for everything else*/
+/*Header for everything else*/
 .masthead-nav > li {
   display: inline-block;
 }
@@ -180,6 +192,7 @@ body {
  * Content
  */
 
+/*Makes background only of content slightly transparent*/
 .opacity{
     background: rgba(225, 225, 225, .8)
         
@@ -195,7 +208,7 @@ body {
   font-weight: bold;
 }
 
-/*Cover's content*/
+/*Cover Page's content*/
 .cover {
   padding: 20% 20px;
   border-style: solid;
@@ -290,16 +303,23 @@ body {
   border-top-right-radius: 0;
 }
 
-.div1{
+
+/*this is the profile content on profile page*/
+#div1{
     text-align: left;
+    padding-left: 10em;
 }
 
-.event-list{
-    text-align: center;
+/*content of edit profile*/
+.profile-div{
+    text-align: left;
+    padding-left: 10em;
 }
 
-.months > li{
-    display: inline-block;
+
+/*for events search bar*/
+.search{
     
- 
 }
+
+.btn{}

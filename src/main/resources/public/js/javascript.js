@@ -1,7 +1,10 @@
+/*Popover from Bootstrap*/
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
 });
 
+/*Function to take values from edit profile form and display them,
+    by replacing content of profile-div*/
 function updateProfile() {
     var username =  document.getElementById("username").value;
     var name =  document.getElementById("name").value;
@@ -18,6 +21,7 @@ function updateProfile() {
             "<br />Paper Craft: " + craft_3 + "<br />Embroidery: " +craft_4 + "<br />About:"+ about;
 }
 
+/*fuction to append event table based on input from user*/
 function addEvent() {
     var date =  document.getElementById("date").value;
     var name =  document.getElementById("name").value;
@@ -34,4 +38,18 @@ function addEvent() {
      
     
 }
+
+/*This was adapted from something I found on stackoverflow.com*/
+$(document).ready(function(){
+  $(".search").keyup(function(){
+        _this = this;
+        // Shows only matchin table rows
+        $.each($(".table tbody tr"), function() {
+            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+               $(this).hide();
+            else
+               $(this).show();                
+        });
+    }); 
+ });
 
