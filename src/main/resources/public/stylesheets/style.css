@@ -33,7 +33,7 @@ a{
  * Base structure
  */
 #cover-page{
-    background: url(../coverimg.jpg) no-repeat center center fixed; 
+    background: url(../img/coverimg.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -43,7 +43,7 @@ a{
 
 .other{
     
-    background: url(../fabric_texture.jpg) no-repeat center center fixed; 
+    background: url(../img/fabric_texture.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
