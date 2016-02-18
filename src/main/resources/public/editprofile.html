@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="utf-8">
+
+   <!-- Bootstrap CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    
+    <!--My CSS-->
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!--My JavaScript-->
+    <script src="js/javascript.js"></script>
+
+<title>Crafter Alliance</title>
+ </head>
+ <body class="other">
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+                
+                <h2 class="masthead-brand">Crafter Alliance</h2>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li><a href="calendar.html">Events</a></li>
+                  <li><a href="profile.html">Your Profile</a></li>
+                  <li><a href="index.html">Sign Out</a></li>
+                  <!--<li><a href="searchProfiles.html">Search for Crafters</a></li>-->
+                </ul>
+              </nav>
+                
+            </div>
+          </div>
+            
+            <div class="opacity">
+                <div class="content">
+                     <div id="profile-div">
+                 <h3>Update your profile </h3><br/>
+                 
+                 <!--form for getting values from user for profile update-->
+                <form>
+
+                 <p>Username: 
+                     <input type="text" name="username" value="username" id="username" disabled><br>
+                </p>
+                <p>Full name:
+                     <input type="text" name="name" id="name">
+                </p>     
+                <p>Business  name:
+                     <input type="text" name="business" id="business"><br>
+                </p>
+                <p>Website:
+                     <input type="text" name="website" id="website"><br>
+                </p>         
+                <p>Your Craft(s)
+                     <input class ="craft1" type="checkbox" name="craft1" value="Jewelry Making" id="craft1">
+                        <label>Jewelry Making</label>
+                     <input class ="craft2" type="checkbox" name="craft2" value="Wood Work" id="craft2">
+                         <label>Wood Work</label>
+                     <input class ="craft3" type="checkbox" name="craft3" value="Paper Craft" id="craft3">
+                        <label>Paper Craft</label>
+                      <input class ="craft4" type="checkbox" name="craft4" value="Embroidery" id="craft4">
+                         <label>Embroidery</label>
+                </p>
+                <p>About: 
+                     <input type="text" name="about" maxlength="1000" id="about"><br>
+                </p>
+                
+                <!--Save button will change content of .profile-div to user responses-->
+                    <input id="Save" type="button" value="Save" onclick="updateProfile();" />
+                    <br />
+                </form>
+            </div>
+             <br />
+        </div>
+
+     </div> <!-- /container -->
+   </div>
+   </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Crafter Alliance 2016</p>
+            </div>
+          </div>
+
+</div>
+   
+    
+</body>
+</html>
