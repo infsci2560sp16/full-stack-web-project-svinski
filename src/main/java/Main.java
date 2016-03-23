@@ -22,7 +22,7 @@ public class Main {
 
     get("/hello", (req, res) -> "Hello World");
 
-   /* get("/", (request, response) -> {
+   get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
           attributes.put("message", "Hello World!");
 
