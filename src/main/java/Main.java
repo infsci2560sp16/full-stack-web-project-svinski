@@ -27,7 +27,7 @@ public class Main {
           attributes.put("message", "Hello World!");
 
             return new ModelAndView(attributes, "index.ftl");
-        }, new FreeMarkerEngine());*/
+        }, new FreeMarkerEngine());
 
     get("/db", (req, res) -> {
       Connection connection = null;
