@@ -19,21 +19,12 @@ public class Main {
 
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
-
-    get("/hello", (req, res) -> "Hello World");
-
-   get("/", (request, response) -> {
-          Map<String, Object> attributes = new HashMap<>();
-          attributes.put("message", "Hello World!");
-
-            return new ModelAndView(attributes, "index.ftl");
-        }, new FreeMarkerEngine());
-   
-   get("/calendar", (request, response) -> {
+     
+   get("/topnav", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             attributes.put("user", "Summer");
             
-            return new ModelAndView(attributes, "calendar.ftl");
+            return new ModelAndView(attributes, "topnav.ftl");
         }, new FreeMarkerEngine());
   
 
