@@ -27,6 +27,12 @@ public class Main {
             return new ModelAndView(attributes, "topnav.ftl");
         }, new FreeMarkerEngine());
   
+    get("/calendar", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            attributes.put("message", "This is a test");
+
+            return new ModelAndView(attributes, "calendar.ftl");
+        }, new FreeMarkerEngine());
 
     get("/db", (req, res) -> {
       Connection connection = null;
