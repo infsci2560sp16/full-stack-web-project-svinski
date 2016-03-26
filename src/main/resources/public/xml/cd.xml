@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events>
+
+	<event>
+            <eventname>Knit Chat</eventname>
+            <date>04/24/2016</date>
+            <eventlocation>
+                <locationname>Cathedral of Learning</locationname>
+                <streetaddress> 4200 Fifth Ave</streetaddress>
+                <city>Pittsburgh</city>
+                <state>PA</state>
+                <zip>15213</zip>
+            </eventlocation>
+            <eventtime>
+                <starttime>6pm</starttime>
+                <endtime>9pm</endtime>
+            </eventtime>
+            <cost>no</cost>
+            <craft>Knitting</craft>
+            <description>Come knit and talk!</description>
+        </event>
+	
+        <event>
+            <eventname>Night Market and Craft Show</eventname>
+            <date>04/30/2016</date>
+            <eventlocation>
+                <locationname>Southside Works</locationname>
+                <streetaddress> 2600 Carson Street</streetaddress>
+                <city>Pittsburgh</city>
+                <state>PA</state>
+                <zip>15211</zip>
+            </eventlocation>
+            <eventtime>
+                <starttime>8pm</starttime>
+                <endtime>11pm</endtime>
+            </eventtime>
+            <cost>no</cost>
+            <craft>Multiple</craft>
+            <description>An nighttime craft show.</description>
+        </event>
+	
+	
+</events>

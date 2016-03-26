@@ -53,3 +53,50 @@ $(document).ready(function(){
     }); 
  });
 
+
+/*working towards XML Get*/
+
+var xhr = createXHR();
+xhr.onreadystatechange = function(){
+    if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+            alert(xhr.responseText);
+        }else{
+            alert('Error code' + xhr.status);
+        }
+        }
+    };
+    xhr.open('GET', '/schema.xml', true);
+    xhr.send(null);   
+    
+function onSuccess(xhr){
+    var dom = xhr.responseXML;
+    showUser(
+            dom.getElementsByTagName('firstname')[0].data,
+            dom.getElementsByTagName('lastname')[0].data);
+        };
+
+/*w3c's version*/
+displayUser(0);
+
+function displayUser(i) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            myFunction(xmlhttp, i);
+        }
+    };
+    xmlhttp.open("GET", "schema.xml", true);
+    xmlhttp.send();
+}
+
+function myFunction(xml, i) {
+    var xmlDoc = xml.responseXML; 
+    x = xmlDoc.getElementsByTagName("user");
+    document.getElementById("profile-div").innerHTML =
+    "Name: " +
+    x[i].getElementsByTagName("firstname");
+}
+
+
+
