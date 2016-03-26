@@ -33,7 +33,7 @@ public class Main {
             Map<String, Object> attributes = new HashMap<>();
             attributes.put("user", "Summer");
             
-            return new ModelAndView(attributes, "header.ftl");
+            return new ModelAndView(attributes, "calendar.ftl");
         }, new FreeMarkerEngine());
   
 
