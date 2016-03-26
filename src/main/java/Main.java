@@ -29,7 +29,7 @@ public class Main {
             return new ModelAndView(attributes, "index.ftl");
         }, new FreeMarkerEngine());
    
-   get("/", (request, response) -> {
+   get("/calendar", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             attributes.put("user", "Summer");
             
