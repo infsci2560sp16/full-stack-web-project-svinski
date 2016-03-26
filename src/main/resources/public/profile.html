@@ -19,6 +19,57 @@
 
     <!--My JavaScript-->
     <script src="js/javascript.js"></script>
+    <script type = "application/javascript">
+         function loadJSON(){
+            var data_file = "json/users.json";
+            var http_request = new XMLHttpRequest();
+            try{
+               // Opera 8.0+, Firefox, Chrome, Safari
+               http_request = new XMLHttpRequest();
+            }catch (e){
+               // Internet Explorer Browsers
+               try{
+                  http_request = new ActiveXObject("Msxml2.XMLHTTP");
+					
+               }catch (e) {
+				
+                  try{
+                     http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                  }catch (e){
+                     // Something went wrong
+                     alert("Your browser broke!");
+                     return false;
+                  }
+					
+               }
+            }
+			
+            http_request.onreadystatechange = function(){
+			
+               if (http_request.readyState == 4  ){
+                  // Javascript function JSON.parse to parse JSON data
+                  var jsonObj = JSON.parse(http_request.responseText);
+
+                  // jsonObj variable now contains the data structure and can
+                  // be accessed as jsonObj.name and jsonObj.country.
+		 document.getElementById("username").innerHTML = "Username: " + jsonObj.username;
+                 document.getElementById("firstname").innerHTML = "Name: " + jsonObj.firstname;
+                 document.getElementById("lastname").innerHTML = jsonObj.lastname;
+		 document.getElementById("bizname").innerHTML = "Business Name: " + jsonObj.bizname;
+		 document.getElementById("website").innerHTML = "Website: " + jsonObj.website;
+		 document.getElementById("craft").innerHTML = "Craft: " + jsonObj.craft;
+		 document.getElementById("about").innerHTML = "About: " + jsonObj.about;
+                  
+               }
+            }
+			
+            http_request.open("GET", data_file, true);
+            http_request.send();
+         }
+         
+         window.onload = loadJSON;
+		
+      </script>
 
 <title>Crafter Alliance</title>
 </head>
@@ -55,12 +106,16 @@
             
             <!--profile placeholder-->
             <div id="div1">
-                <p><b>Username</b>: USERNAME </p>
-                <p><b> Full </b> FIRST LAST</p>
-                <p><b>Business name</b>: CRAFT BUSINESS</p>
-                <p><b>Website</b>: WWW.MYCRAFTSITE.COM</p>
-                <p><b>Your Craft(s)</b>: CRAFTS I DO</p>
-                <p><b>About</b>: STUFF AND THINGS ABOUT MY SKILLZ</p>
+               <table>
+                <tr><th>Your Profile</th></tr>
+                 <tr><td><div id = "username"></div></td>
+                 <tr><td id="firstname"></td><td id="lastname"></td></tr>
+                 <tr><td><div id = "bizname"></div></td></tr>
+                 <tr><td><div id = "website"></div></td></tr>
+                 <tr><td><div id = "craft"></div></td></tr>
+                 <tr><td><div id = "about"></div></td></tr>
+               </table>
+
             
             <!--this button will take user to edit profile page with edit profile form-->    
             <a href="editprofile.html" class="btn btn-default">Edit Profile</a>

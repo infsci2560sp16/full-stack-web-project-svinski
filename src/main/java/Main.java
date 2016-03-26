@@ -23,11 +23,19 @@ public class Main {
     get("/hello", (req, res) -> "Hello World");
 
    get("/", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
+          Map<String, Object> attributes = new HashMap<>();
           attributes.put("message", "Hello World!");
 
             return new ModelAndView(attributes, "index.ftl");
         }, new FreeMarkerEngine());
+   
+   get("/", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            attributes.put("user", "Summer");
+            
+            return new ModelAndView(attributes, "header.ftl");
+        }, new FreeMarkerEngine());
+  
 
     get("/db", (req, res) -> {
       Connection connection = null;
