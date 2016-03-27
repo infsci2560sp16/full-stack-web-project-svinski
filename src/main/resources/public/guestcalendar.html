@@ -17,9 +17,9 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <!--My JavaScript-->
-    <script src="js/javascript.js">
-        
-        
+    <script src="js/javascript.js"></script>
+    <script>
+        window.onload = loadXMLDoc;
     </script>
     
     
@@ -61,21 +61,20 @@
                   
                </form>
                     
-                    <!--Pagination that I may or may not keep-->
+                   <!--Pagination, not sure if this will stay
                    <ul class ="pagination">
                         <li><a href="#">Prev</a></li>
                         <li><a href="#">January 2016</a></li>
                         <li class="active"><a href="#"> February 2016</a>
                         <li><a href="#">March 2016</a></li>
                         <li><a href="#">Next</a></li>
-                        
-                    </ul>
+                    </ul>-->
               
-                    <br/><p>Click on events for more detail.</p><br/>
-          
+              <br/><p>Click on event name for more detail.</p><br/>
+           
          <!--Bootstrap hover table-->     
-         <table class="table table-hover">
-            <thead>
+         <table id="events">
+            <!--<thead>
               <tr>
                 <th>Date</th>
                 <th>Event Name</th>
@@ -101,27 +100,28 @@
                 <td>Pittsburgh Glass Center</td>
                 <td>Pittsburgh, PA</td>
               </tr>
-            </tbody>
+            </tbody>-->
           </table>
-                </div>
+              
+         </div>
               
               
-              </div>
+     </div>
            
-          </div>
+    </div>
                
-            </div>
+    </div>
 
+        
           <div class="mastfoot">
             <div class="inner">
-              <p>Crafter Alliance 2016</p>
+    
+               <p>Crafter Alliance 2016</p>
             </div>
           </div>
 
-        </div>
+</div>
 
-   
-
-    
 </body>
+
 </html>

@@ -21,6 +21,10 @@
     <script>
         window.onload = loadXMLDoc;
     </script>
+    
+    
+    
+    
 
 <title>Crafter Alliance</title>
 </head>
@@ -34,27 +38,24 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-                
                 <h2 class="masthead-brand">Crafter Alliance</h2>
-              
-                <#include "topnav.ftl"> 
+                
+              <#include "topnav.ftl"> >
+                
             </div>
           </div>
             
             <div class="opacity">
           <div class="content">
-              
               <br>
               <form class="form-search">
                   
                   <!--search field-->
                   <input type="text" class="search" placeholder="Type to search..." />
-                         
-                  <!--button for add event opens to a new page for now-->       
-                  <a href="addevent.html" class="btn btn-events">Add Event</a>
+                  
                </form>
-              
-                <!--Pagination, not sure if this will stay
+                    
+                   <!--Pagination, not sure if this will stay
                    <ul class ="pagination">
                         <li><a href="#">Prev</a></li>
                         <li><a href="#">January 2016</a></li>

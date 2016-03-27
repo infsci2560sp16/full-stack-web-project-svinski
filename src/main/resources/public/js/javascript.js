@@ -54,8 +54,87 @@ $(document).ready(function(){
  });
 
 
+//the following fuctions are for the XML GET command for events
+function loadXMLDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+      myFunction(xmlhttp);
+          }
+          
+    else if (ActiveXObject("Microsoft.XMLDOM")) {
+        xmlhttp = new ActiveXObject("Microsoft.XMLDOM");
+        xmlhttp.async = false;
+        xmlhttp.load("xml/cd.xml");
+        myFunction(xmlhttp);
+    }
+   
+  };
+  xmlhttp.open("GET", "xml/cd.xml", true);
+  xmlhttp.send();
+};
+function myFunction(xml) {
+  var i;
+  var xmlDoc = xml.responseXML;
+  var table="<tr><th>Event</th><th>Date</th><th>Description</th></tr>";
+  var x = xmlDoc.getElementsByTagName("event");
+  for (i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("eventname")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("date")[0].childNodes[0].nodeValue +
+    "</td><td>"+
+    x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("events").innerHTML = table;
+}
 
+function loadJSON(){
+            var data_file = "json/users.json";
+            var http_request = new XMLHttpRequest();
+            try{
+               // Opera 8.0+, Firefox, Chrome, Safari
+               http_request = new XMLHttpRequest();
+            }catch (e){
+               // Internet Explorer Browsers
+               try{
+                  http_request = new ActiveXObject("Msxml2.XMLHTTP");
+					
+               }catch (e) {
+				
+                  try{
+                     http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                  }catch (e){
+                     // Something went wrong
+                     alert("Your browser broke!");
+                     return false;
+                  }
+					
+               }
+            }
+			
+            http_request.onreadystatechange = function(){
+			
+               if (http_request.readyState == 4  ){
+                  // Javascript function JSON.parse to parse JSON data
+                  var jsonObj = JSON.parse(http_request.responseText);
 
+                  // jsonObj variable now contains the data structure and can
+                  // be accessed as jsonObj.name and jsonObj.country.
+		 document.getElementById("username").innerHTML = "Username: " + jsonObj.username;
+                 document.getElementById("fullname").innerHTML = "Name: " + jsonObj.fullname;
+                 document.getElementById("bizname").innerHTML = "Business Name: " + jsonObj.bizname;
+		 document.getElementById("website").innerHTML = "Website: " + jsonObj.website;
+		 document.getElementById("craft").innerHTML = "Craft: " + jsonObj.craft;
+		 document.getElementById("about").innerHTML = "About: " + jsonObj.about;
+                  
+               }
+            }
+			
+            http_request.open("GET", data_file, true);
+            http_request.send();
+         }
 
 
 

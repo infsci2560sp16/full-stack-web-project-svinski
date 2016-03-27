@@ -19,42 +19,7 @@
     <!--My JavaScript-->
     <script src="js/javascript.js"></script>
     <script>
-        function loadXMLDoc() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      myFunction(xmlhttp);
-          }
-          
-    else if (ActiveXObject("Microsoft.XMLDOM")) {
-        xmlhttp = new ActiveXObject("Microsoft.XMLDOM");
-        xmlhttp.async = false;
-        xmlhttp.load("xml/cd.xml");
-        myFunction(xmlhttp);
-    }
-   
-  };
-  xmlhttp.open("GET", "xml/cd.xml", true);
-  xmlhttp.send();
-};
-function myFunction(xml) {
-  var i;
-  var xmlDoc = xml.responseXML;
-  var table="<tr><th>Event</th><th>Date</th><th>Description</th></tr>";
-  var x = xmlDoc.getElementsByTagName("event");
-  for (i = 0; i <x.length; i++) { 
-    table += "<tr><td>" +
-    x[i].getElementsByTagName("eventname")[0].childNodes[0].nodeValue +
-    "</td><td>" +
-    x[i].getElementsByTagName("date")[0].childNodes[0].nodeValue +
-    "</td><td>"+
-    x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
-    "</td></tr>";
-  }
-  document.getElementById("events").innerHTML = table;
-}
-
-window.onload = loadXMLDoc;
+        window.onload = loadXMLDoc;
     </script>
 
 <title>Crafter Alliance</title>
@@ -75,7 +40,7 @@ window.onload = loadXMLDoc;
                   <ul class="nav masthead-nav">
                       
                       <li> Hi, USERNAME</li>
-                  <li><a href="calendar.html">Events</a></li>
+                  <li><a href="http://secret-river-4272.herokuapp.com/calendar">Events</a></li>
                   <li><a href="profile.html">Your Profile</a></li>
                   <li><a href="index.html">Sign Out</a></li>
                   
