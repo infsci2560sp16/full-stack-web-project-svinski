@@ -33,7 +33,7 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	public void aNewUserShouldBeCreated() {
-		TestResponse res = request("POST", "/users?name=john&email=john@foobar.com");
+		TestResponse res = request("POST", "/users");
 		Map<String, String> json = res.json();
 		assertEquals(200, res.status);
 		assertEquals("john", json.get("name"));

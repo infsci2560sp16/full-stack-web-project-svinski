@@ -15,12 +15,14 @@ import com.heroku.sdk.jdbc.DatabaseUrl;
 
 public class Main {
 
+    
   public static void main(String[] args) {
 
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
     
     new UserController(new UserService());
+    new UserControllerIntegrationTest();
 	
      
    get("/topnav", (request, response) -> {

@@ -91,7 +91,7 @@ function myFunction(xml) {
 }
 
 function loadJSON(){
-            var data_file = "json/users.json";
+            var data_file = "http://secret-river-4272.herokuapp.com/users";
             var http_request = new XMLHttpRequest();
                         // Opera 8.0+, Firefox, Chrome, Safari
                http_request = new XMLHttpRequest();
