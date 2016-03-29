@@ -28,11 +28,8 @@ public class Main {
     Gson gson = new Gson();
     
      get("/users/001", (req, res) -> {
-            Map<String, Object> data = new HashMap<>();
-            data.put("id", "001");
-            data.put("name", "Summer Sanchez");
-            data.put("email", "summer@rickandmorty.com" );
-            return data;
+            User user001 = new User("001", "Summer Sanchez", "summer@rnm.com", "Summer Time", "rickandmorty.com");
+            return user001;
         }, gson::toJson);
 
         

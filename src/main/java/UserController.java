@@ -18,10 +18,10 @@ public class UserController {
 
 		get("/users", (req, res) -> userService.getAllUsers(), json());
 
-		get("/users/001", (req, res) -> {
-			String id = req.params("001");
+		get("/users/:id", (req, res) -> {
+			String id = req.params(":id");
 			User user = userService.getUser(id);
-			if (user != null) {
+			if (user  != null) {
 				return user;
 			}
 			res.status(400);
