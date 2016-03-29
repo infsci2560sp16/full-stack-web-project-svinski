@@ -7,6 +7,12 @@ import spark.ModelAndView;
 import static spark.Spark.get;
 import spark.template.freemarker.FreeMarkerEngine;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
  *
  * @author Sarah's Laptop
@@ -21,6 +27,7 @@ public class ftlRoutes {
                 attributes.put("user", "Summer");                
                 return new ModelAndView(attributes, "topnav.ftl");
             }, new FreeMarkerEngine());
+<<<<<<< HEAD:src/main/java/Routes/ftlRoutes.java
     
     get("/calendar", (request, response) -> {
                 Map<String, Object> attributes = new HashMap<>();
@@ -56,7 +63,8 @@ public class ftlRoutes {
                 
     
     
+=======
+>>>>>>> parent of 34865bd... ftl additions:src/main/java/ftlRoutes.java
     }
-    
     
 }

@@ -65,12 +65,12 @@ function loadXMLDoc() {
     else if (ActiveXObject("Microsoft.XMLDOM")) {
         xmlhttp = new ActiveXObject("Microsoft.XMLDOM");
         xmlhttp.async = false;
-        xmlhttp.load("xml/eventlist.xml");
+        xmlhttp.load("xml/cd.xml");
         myFunction(xmlhttp);
     }
    
   };
-  xmlhttp.open("GET", "xml/eventlist.xml", true);
+  xmlhttp.open("GET", "xml/cd.xml", true);
   xmlhttp.send();
 }
 function myFunction(xml) {
@@ -90,10 +90,8 @@ function myFunction(xml) {
   document.getElementById("events").innerHTML = table;
 }
 
-
-
 function loadJSON(){
-            var data_file = "json/users.json";
+            var data_file = "http://secret-river-4272.herokuapp.com/users";
             var http_request = new XMLHttpRequest();
                         // Opera 8.0+, Firefox, Chrome, Safari
                http_request = new XMLHttpRequest();
@@ -127,7 +125,7 @@ function addUser() {
     $.ajax({
         type: 'POST',
         contentType: 'application/json',
-        url: "http://secret-river-4272.herokuapp.com/addusers",
+        url: "http://secret-river-4272.herokuapp.com/users",
         dataType: "json",
         data: formToJSON(),
         success: function(data, textStatus, jqXHR){
@@ -145,11 +143,11 @@ function addUser() {
 function formToJSON() {
     return JSON.stringify({
         "name": $('#name').val(),
-        "email": $('#email').val(),
-        "bizname": $('#bizname').val(),
-        "website": $('#website').val(),
-        "craft": $('#craft').val(),
-        "about": $('#about').val()
+        "grapes": $('#grapes').val(),
+        "country": $('#country').val(),
+        "region": $('#region').val(),
+        "year": $('#year').val(),
+        "description": $('#description').val()
         });
 }
 

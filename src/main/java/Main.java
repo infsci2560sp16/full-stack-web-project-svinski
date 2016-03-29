@@ -19,7 +19,6 @@ import com.heroku.sdk.jdbc.DatabaseUrl;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.SparkBase.port;
@@ -32,7 +31,37 @@ import static Routes.JsonUtil.json;
  */
 public class Main {
     
+<<<<<<< HEAD
         
+=======
+    
+    
+    
+    /*Gson gson = new Gson();
+    
+    private void setupRoutes(){          
+                     
+                     
+            
+           /* get("/api/users",(req, res) -> {
+            ArrayList<> allUsers = new ArrayList<>
+            allUsers =UserService.getAllUsers();
+            return allUsers;
+            }, gson::toJson);
+                        
+                      
+            
+            get("/api/event/001", (req, res) -> {
+                Map<String, Object> eventData = new HashMap<>();
+               
+
+                
+                
+            });
+            
+    }*/
+                
+>>>>>>> parent of 34865bd... ftl additions
   
     
     public static void main(String[] args){
@@ -40,8 +69,16 @@ public class Main {
         port(Integer.valueOf(System.getenv("PORT")));
          staticFileLocation("/public");
     
+<<<<<<< HEAD
         new ftlRoutes();
        }
+=======
+       Object a = new AddUserController();
+       Object b= new UserController();
+       Object c = new ftlRoutes();
+    }
+    
+>>>>>>> parent of 34865bd... ftl additions
 }
 
 
