@@ -57,7 +57,7 @@ public class UserControllerIntegrationTest {
 		}
 	}
 
-	private static class TestResponse {
+	public static class TestResponse {
 
 		public final String body;
 		public final int status;

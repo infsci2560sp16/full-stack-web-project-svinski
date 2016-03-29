@@ -14,14 +14,65 @@ import static spark.Spark.get;
 import com.google.gson.Gson;
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import spark.Spark;
+import spark.utils.IOUtils;
+
 
 public class Main {
+    
+    @BeforeClass
+	public static void beforeClass() {
+		Main.main(null);
+	}
+
+	@AfterClass
+	public static void afterClass() {
+		Spark.stop();
+	}
+
+	@Test
+	public void aNewUserShouldBeCreated() {
+		UserControllerIntegrationTest.TestResponse res = request("POST", "/users");
+		Map<String, String> json = res.json();
+		assertEquals(200, res.status);
+		assertEquals("john", json.get("name"));
+		assertEquals("john@foobar.com", json.get("email"));
+		assertNotNull(json.get("id"));
+	}
+
+	private UserControllerIntegrationTest.TestResponse request(String method, String path) {
+		try {
+			URL url = new URL("http://localhost:4567" + path);
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod(method);
+			connection.setDoOutput(true);
+			connection.connect();
+			String body = IOUtils.toString(connection.getInputStream());
+			return new UserControllerIntegrationTest.TestResponse(connection.getResponseCode(), body);
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail("Sending request failed: " + e.getMessage());
+			return null;
+		}
+	}
 
     
+    
   public static void main(String[] args) {
+      
 
-    port(Integer.valueOf(System.getenv("PORT")));
+   port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
+    
     
     new UserController(new UserService());
     
@@ -80,7 +131,7 @@ public class Main {
       } finally {
         if (connection != null) try{connection.close();} catch(SQLException e){}
       }
-    }, new FreeMarkerEngine());
+    }, new FreeMarkerEngine());*/
 
   }
 
