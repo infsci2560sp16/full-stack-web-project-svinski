@@ -28,71 +28,17 @@ import spark.Spark;
 import spark.utils.IOUtils;
 import static test1.JsonUtil.toJson;
 
-
 public class Main {
+    public static void main(String[] args) {
+        
+        new UserController(new UserService());
+        
+        new UserControllerIntegrationTest();
+               
     
-    /*@BeforeClass
-	public static void beforeClass() {
-		Main.main(null);
-	}
-
-	@AfterClass
-	public static void afterClass() {
-		Spark.stop();
-	}
-
-	@Test
-	public void aNewUserShouldBeCreated() {
-		UserControllerIntegrationTest.TestResponse res = request("POST", "/users");
-		Map<String, String> json = res.json();
-		assertEquals(200, res.status);
-		assertEquals("john", json.get("name"));
-		assertEquals("john@foobar.com", json.get("email"));
-		assertNotNull(json.get("id"));
-	}
-
-	private UserControllerIntegrationTest.TestResponse request(String method, String path) {
-		try {
-			URL url = new URL("http://localhost:4567" + path);
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestMethod(method);
-			connection.setDoOutput(true);
-			connection.connect();
-			String body = IOUtils.toString(connection.getInputStream());
-			return new UserControllerIntegrationTest.TestResponse(connection.getResponseCode(), body);
-		} catch (IOException e) {
-			e.printStackTrace();
-			fail("Sending request failed: " + e.getMessage());
-			return null;
-		}
-	}*/
-
-    
-    private static boolean shouldReturnHtml(Request request) {
-        String accept = request.headers("Accept");
-        return accept != null && accept.contains("text/html");
-    }
-    
-  /*public static void main(String[] args) {
-      
-
-   port(Integer.valueOf(System.getenv("PORT")));
+    port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
-     new UserController(new UserService());*/
-
-    Gson gson = new Gson();
-   
-    
-       
-    private void setupRoutes() {
-        get("/users/001", (req, res) -> {
-            Map<String, Object> data = new HashMap<>();
-            data.put("id", "001");
-            data.put("name", "Summer Sanchez");
-            return data;
-        }, gson::toJson);
-
-            
+              
    get("/topnav", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             attributes.put("user", "Summer");
@@ -109,7 +55,7 @@ public class Main {
     
     get("/guestcalendar", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
-            attributes.put("message", "This is a test");
+            attributes.put("user", "vistor");
 
             return new ModelAndView(attributes, "calendar.ftl");
         }, new FreeMarkerEngine());
@@ -143,3 +89,4 @@ public class Main {
   }
 
 }
+

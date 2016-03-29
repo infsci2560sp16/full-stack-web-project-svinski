@@ -20,9 +20,9 @@ public class UserService {
 		return users.get(id);
 	}
 
-	public User createUser(String id, String name, String email, String bizname, String website) {
+	public User createUser(String name, String email, String bizname, String website) {
 		failIfInvalid(name, email);
-		User user = new User(id, name, email, bizname, website);
+		User user = new User(name, email, bizname, website);
 		users.put(user.getId(), user);
 		return user;
 	}

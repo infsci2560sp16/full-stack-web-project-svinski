@@ -106,6 +106,7 @@ function loadJSON(){
                   // jsonObj variable now contains the data structure and can
                   // be accessed as jsonObj.name and jsonObj.country.
 		 document.getElementById("username").innerHTML = "Username: " + jsonObj.username;
+                 document.getElementById("email").innerHTML = "Email" + jsonObj.email;
                  document.getElementById("fullname").innerHTML = "Name: " + jsonObj.fullname;
                  document.getElementById("bizname").innerHTML = "Business Name: " + jsonObj.bizname;
 		 document.getElementById("website").innerHTML = "Website: " + jsonObj.website;
@@ -118,6 +119,37 @@ function loadJSON(){
             http_request.open("GET", data_file, true);
             http_request.send();
          }
+
+function addUser() {
+    console.log('addUser');
+    $.ajax({
+        type: 'POST',
+        contentType: 'application/json',
+        url: "http://secret-river-4272.herokuapp.com/users",
+        dataType: "json",
+        data: formToJSON(),
+        success: function(data, textStatus, jqXHR){
+            alert('User profile successfully added');
+            $('#btnDelete').show();
+            $('#userId').val(data.id);
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            alert('addUser error: ' + textStatus);
+        }
+    });
+}
+
+// Helper function to serialize all the form fields into a JSON string
+function formToJSON() {
+    return JSON.stringify({
+        "name": $('#name').val(),
+        "grapes": $('#grapes').val(),
+        "country": $('#country').val(),
+        "region": $('#region').val(),
+        "year": $('#year').val(),
+        "description": $('#description').val()
+        });
+}
 
 
 

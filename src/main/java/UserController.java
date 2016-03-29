@@ -29,11 +29,10 @@ public class UserController {
 		}, json());
 
 		post("/users", (req, res) -> userService.createUser(
-				req.queryParams("001"),
-				req.queryParams("Summer Sanchez"),
-                                req.queryParams("summer@randm.com"),
-                                req.queryParams("Summer Time"),
-                                req.queryParams("rickandmorty.com")
+				req.queryParams("name"),
+                                req.queryParams("email"),
+                                req.queryParams("bizname"),
+                                req.queryParams("website")
 		), json());
 
 		exception(IllegalArgumentException.class, (e, req, res) -> {

@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
-
-
-
 import com.google.gson.Gson;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
@@ -33,17 +26,19 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	public void aNewUserShouldBeCreated() {
-		TestResponse res = request("POST", "/users");
+		TestResponse res = request("POST", "users/");
 		Map<String, String> json = res.json();
 		assertEquals(200, res.status);
-		assertEquals("john", json.get("name"));
-		assertEquals("john@foobar.com", json.get("email"));
+		assertEquals("Summer Sanchez", json.get("name"));
+		assertEquals("summer@randm.com", json.get("email"));
+                assertEquals("Summer Sol", json.get("bizname"));
+                assertEquals("rickandmorty.com", json.get("website"));
 		assertNotNull(json.get("id"));
 	}
 
 	private TestResponse request(String method, String path) {
 		try {
-			URL url = new URL("http://localhost:4567" + path);
+			URL url = new URL("http://http://secret-river-4272.herokuapp.com/" + path);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod(method);
 			connection.setDoOutput(true);
@@ -57,7 +52,7 @@ public class UserControllerIntegrationTest {
 		}
 	}
 
-	public static class TestResponse {
+	private static class TestResponse {
 
 		public final String body;
 		public final int status;
@@ -71,4 +66,4 @@ public class UserControllerIntegrationTest {
 			return new Gson().fromJson(body, HashMap.class);
 		}
 	}
-} */
+}

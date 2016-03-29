@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.util.UUID;
 
 public class User {
 
@@ -13,8 +13,8 @@ public class User {
         private String bizname;
         private String website;
 
-	public User(String id, String name, String email, String bizname, String website) {
-		this.id = id;
+	public User(String name, String email, String bizname, String website) {
+		this.id = UUID.randomUUID().toString();
 		this.name = name;
 		this.email = email;
                 this.bizname = bizname;
