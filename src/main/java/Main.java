@@ -4,16 +4,8 @@
  * and open the template in the editor.
  */
 
-import com.google.gson.Gson;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Connection;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.xml.bind.ValidationEvent;
@@ -28,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import static spark.Spark.get;
 import static spark.Spark.post;
+import static spark.SparkBase.port;
+import static spark.SparkBase.staticFileLocation;
 import static test1.JsonUtil.json;
 
 /**
@@ -35,6 +29,9 @@ import static test1.JsonUtil.json;
  * @author Sarah's Laptop
  */
 public class Main {
+    
+    
+    
     
     /*Gson gson = new Gson();
     
@@ -81,6 +78,10 @@ public class Main {
     }*/
     
     public static void main(String[] args){
+                
+        port(Integer.valueOf(System.getenv("PORT")));
+         staticFileLocation("/public");
+    
         new AddUserController();
         new ftlRoutes();
     }
