@@ -19,6 +19,9 @@ public class Main {
 
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
+    
+    new UserController(new UserService());
+	
      
    get("/topnav", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
