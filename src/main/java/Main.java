@@ -7,23 +7,11 @@
 
 
 import Routes.ftlRoutes;
-import java.util.Map;
 
-import javax.xml.bind.ValidationEvent;
 
-import spark.template.freemarker.FreeMarkerEngine;
-import spark.ModelAndView;
-import static spark.Spark.get;
 
-import com.heroku.sdk.jdbc.DatabaseUrl;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import static spark.Spark.get;
-import static spark.Spark.post;
 import static spark.SparkBase.port;
 import static spark.SparkBase.staticFileLocation;
-import static Routes.JsonUtil.json;
 
 /**
  *
