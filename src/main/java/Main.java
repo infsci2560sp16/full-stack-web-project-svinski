@@ -6,6 +6,7 @@
 
 
 
+import Routes.ftlRoutes;
 import java.util.Map;
 
 import javax.xml.bind.ValidationEvent;
@@ -23,7 +24,7 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.SparkBase.port;
 import static spark.SparkBase.staticFileLocation;
-import static test1.JsonUtil.json;
+import static Routes.JsonUtil.json;
 
 /**
  *
@@ -31,54 +32,7 @@ import static test1.JsonUtil.json;
  */
 public class Main {
     
-    public Main(){
-        ftlRoutes();
-    }
-       
-    private void ftlRoutes(){
-    get("/topnav", (request, response) -> {
-                Map<String, Object> attributes = new HashMap<>();
-                // user
-                attributes.put("user", "Summer");                
-                return new ModelAndView(attributes, "topnav.ftl");
-            }, new FreeMarkerEngine());
-    
-    get("/calendar", (request, response) -> {
-                Map<String, Object> attributes = new HashMap<>();
-                // user
-                attributes.put("user", "Summer");                
-                return new ModelAndView(attributes, "calendar.ftl");
-            }, new FreeMarkerEngine());
-    
-
-    get("/guestcalendar", (request, response) -> {
-                Map<String, Object> attributes = new HashMap<>();
-                // user
-                attributes.put("user", "Guest");                
-                return new ModelAndView(attributes, "guestcalendar.ftl");
-            }, new FreeMarkerEngine());
-    
-
-    get("/profile", (request, response) -> {
-                Map<String, Object> attributes = new HashMap<>();
-                // user
-                attributes.put("user", "Summer");
-                
-                return new ModelAndView(attributes, "profile.ftl");
-            }, new FreeMarkerEngine());
-    
-    get("/header", (request, response) -> {
-                Map<String, Object> attributes = new HashMap<>();
-                // user
-                attributes.put("user", "Summer");
-                
-                return new ModelAndView(attributes, "header.ftl");
-            }, new FreeMarkerEngine());                
-                
-    
-    
-    }
-           
+        
   
     
     public static void main(String[] args){
@@ -86,10 +40,8 @@ public class Main {
         port(Integer.valueOf(System.getenv("PORT")));
          staticFileLocation("/public");
     
-       new AddUserController();
-       new UserController();
+        new ftlRoutes();
        }
-    
 }
 
 

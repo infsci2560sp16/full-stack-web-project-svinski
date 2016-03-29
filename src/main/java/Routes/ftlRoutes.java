@@ -1,3 +1,5 @@
+package Routes;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,16 +14,17 @@ import spark.template.freemarker.FreeMarkerEngine;
 public class ftlRoutes {
     
     private void ftlRoutes(){
+        
     get("/topnav", (request, response) -> {
                 Map<String, Object> attributes = new HashMap<>();
-                // message
+                // user
                 attributes.put("user", "Summer");                
                 return new ModelAndView(attributes, "topnav.ftl");
             }, new FreeMarkerEngine());
     
     get("/calendar", (request, response) -> {
                 Map<String, Object> attributes = new HashMap<>();
-                // message
+                // user
                 attributes.put("user", "Summer");                
                 return new ModelAndView(attributes, "calendar.ftl");
             }, new FreeMarkerEngine());
@@ -29,7 +32,7 @@ public class ftlRoutes {
 
     get("/guestcalendar", (request, response) -> {
                 Map<String, Object> attributes = new HashMap<>();
-                // message
+                // user
                 attributes.put("user", "Guest");                
                 return new ModelAndView(attributes, "guestcalendar.ftl");
             }, new FreeMarkerEngine());
@@ -37,11 +40,20 @@ public class ftlRoutes {
 
     get("/profile", (request, response) -> {
                 Map<String, Object> attributes = new HashMap<>();
-                // message
+                // user
                 attributes.put("user", "Summer");
                 
                 return new ModelAndView(attributes, "profile.ftl");
             }, new FreeMarkerEngine());
+    
+    get("/header", (request, response) -> {
+                Map<String, Object> attributes = new HashMap<>();
+                // user
+                attributes.put("user", "Summer");
+                
+                return new ModelAndView(attributes, "header.ftl");
+            }, new FreeMarkerEngine());                
+                
     
     
     }
