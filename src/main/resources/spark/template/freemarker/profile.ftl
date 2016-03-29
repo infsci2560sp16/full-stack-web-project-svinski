@@ -50,6 +50,9 @@
             <a href="editprofile.html" class="btn btn-default">Edit Profile</a>
   
             </div>
+            </div>
+            <h3>Your friends</h3>
+                <p>
 
         </div> <!-- /container -->
        </div>

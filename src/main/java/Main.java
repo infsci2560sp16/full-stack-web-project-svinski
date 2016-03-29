@@ -49,42 +49,24 @@ public class Main {
             
             get("/api/event/001", (req, res) -> {
                 Map<String, Object> eventData = new HashMap<>();
-                eventData.put("event", "live");
-                eventData.put("now", new Date());
+               
 
                 
-                String xml = readXML("data/peoples.xml");
-                res.type("text/xml");
-                return xml;
+                
             });
             
-    }
-                
-    public String readXML(String file) throws IOException {
-    	BufferedReader br = null;
-		br = new BufferedReader(new FileReader(file));
-	    StringBuilder sb = new StringBuilder();
-	    String line = br.readLine();
-
-	    while (line != null) {
-	        sb.append(line);
-	        sb.append(System.lineSeparator());
-	        line = br.readLine();
-	    }
-	    String everything = sb.toString();
-	    br.close();
-	    return everything;
-
     }*/
+                
+  
     
     public static void main(String[] args){
                 
         port(Integer.valueOf(System.getenv("PORT")));
          staticFileLocation("/public");
     
-        new AddUserController();
-        new UserController();
-        new ftlRoutes();
+       Object a = new AddUserController();
+       Object b= new UserController();
+       Object c = new ftlRoutes();
     }
     
 }
