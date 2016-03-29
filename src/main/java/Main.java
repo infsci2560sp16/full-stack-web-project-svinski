@@ -1,92 +1,90 @@
-import java.sql.*;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import com.google.gson.Gson;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+
 import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
-import java.net.URI;
-import java.net.URISyntaxException;
+import javax.xml.bind.ValidationEvent;
 
-import static spark.Spark.*;
 import spark.template.freemarker.FreeMarkerEngine;
 import spark.ModelAndView;
 import static spark.Spark.get;
-        
-import com.google.gson.Gson;
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.junit.AfterClass;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import spark.Request;
-import spark.Spark;
-import spark.utils.IOUtils;
-import static test1.JsonUtil.toJson;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import static spark.Spark.get;
+import static spark.Spark.post;
+import static test1.JsonUtil.json;
 
+/**
+ *
+ * @author Sarah's Laptop
+ */
 public class Main {
-    public static void main(String[] args) {
-        
-        new UserController(new UserService());
-        
-        new UserControllerIntegrationTest();
-               
     
-    port(Integer.valueOf(System.getenv("PORT")));
-    staticFileLocation("/public");
-              
-   get("/topnav", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            attributes.put("user", "Summer");
+    /*Gson gson = new Gson();
+    
+    private void setupRoutes(){          
+                     
+                     
             
-            return new ModelAndView(attributes, "topnav.ftl");
-        }, new FreeMarkerEngine());
-  
-    get("/calendar", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            attributes.put("user", "Summer");
+           /* get("/api/users",(req, res) -> {
+            ArrayList<> allUsers = new ArrayList<>
+            allUsers =UserService.getAllUsers();
+            return allUsers;
+            }, gson::toJson);
+                        
+                      
+            
+            get("/api/event/001", (req, res) -> {
+                Map<String, Object> eventData = new HashMap<>();
+                eventData.put("event", "live");
+                eventData.put("now", new Date());
 
-            return new ModelAndView(attributes, "calendar.ftl");
-        }, new FreeMarkerEngine());
+                
+                String xml = readXML("data/peoples.xml");
+                res.type("text/xml");
+                return xml;
+            });
+            
+    }
+                
+    public String readXML(String file) throws IOException {
+    	BufferedReader br = null;
+		br = new BufferedReader(new FileReader(file));
+	    StringBuilder sb = new StringBuilder();
+	    String line = br.readLine();
+
+	    while (line != null) {
+	        sb.append(line);
+	        sb.append(System.lineSeparator());
+	        line = br.readLine();
+	    }
+	    String everything = sb.toString();
+	    br.close();
+	    return everything;
+
+    }*/
     
-    get("/guestcalendar", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            attributes.put("user", "vistor");
-
-            return new ModelAndView(attributes, "calendar.ftl");
-        }, new FreeMarkerEngine());
-
-    get("/db", (req, res) -> {
-      Connection connection = null;
-      Map<String, Object> attributes = new HashMap<>();
-      try {
-        connection = DatabaseUrl.extract().getConnection();
-
-        Statement stmt = connection.createStatement();
-        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-        stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-        ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-
-        ArrayList<String> output = new ArrayList<String>();
-        while (rs.next()) {
-          output.add( "Read from DB: " + rs.getTimestamp("tick"));
-        }
-
-        attributes.put("results", output);
-        return new ModelAndView(attributes, "db.ftl");
-      } catch (Exception e) {
-        attributes.put("message", "There was an error: " + e);
-        return new ModelAndView(attributes, "error.ftl");
-      } finally {
-        if (connection != null) try{connection.close();} catch(SQLException e){}
-      }
-    }, new FreeMarkerEngine());
-
-  }
-
+    public static void main(String[] args){
+        new AddUserController();
+        new ftlRoutes();
+    }
+    
 }
+
 
