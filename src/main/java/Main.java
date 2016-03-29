@@ -79,7 +79,6 @@ public class Main {
    port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
      new UserController(new UserService());*/
-   
 
     Gson gson = new Gson();
    
