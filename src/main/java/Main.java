@@ -31,9 +31,6 @@ import static Routes.JsonUtil.json;
  */
 public class Main {
     
-<<<<<<< HEAD
-        
-=======
     
     
     
@@ -61,7 +58,6 @@ public class Main {
             
     }*/
                 
->>>>>>> parent of 34865bd... ftl additions
   
     
     public static void main(String[] args){
@@ -69,16 +65,17 @@ public class Main {
         port(Integer.valueOf(System.getenv("PORT")));
          staticFileLocation("/public");
     
-<<<<<<< HEAD
+
         new ftlRoutes();
        }
-=======
+
        Object a = new AddUserController();
        Object b= new UserController();
        Object c = new ftlRoutes();
     }
     
->>>>>>> parent of 34865bd... ftl additions
-}
+
+
+
 
 

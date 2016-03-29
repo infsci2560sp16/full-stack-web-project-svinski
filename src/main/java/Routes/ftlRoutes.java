@@ -27,7 +27,7 @@ public class ftlRoutes {
                 attributes.put("user", "Summer");                
                 return new ModelAndView(attributes, "topnav.ftl");
             }, new FreeMarkerEngine());
-<<<<<<< HEAD:src/main/java/Routes/ftlRoutes.java
+
     
     get("/calendar", (request, response) -> {
                 Map<String, Object> attributes = new HashMap<>();
@@ -63,8 +63,5 @@ public class ftlRoutes {
                 
     
     
-=======
->>>>>>> parent of 34865bd... ftl additions:src/main/java/ftlRoutes.java
-    }
-    
+}
 }
