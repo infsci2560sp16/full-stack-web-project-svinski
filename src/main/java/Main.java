@@ -23,13 +23,15 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import spark.Request;
 import spark.Spark;
 import spark.utils.IOUtils;
+import static test1.JsonUtil.toJson;
 
 
 public class Main {
     
-    @BeforeClass
+    /*@BeforeClass
 	public static void beforeClass() {
 		Main.main(null);
 	}
@@ -63,29 +65,35 @@ public class Main {
 			fail("Sending request failed: " + e.getMessage());
 			return null;
 		}
-	}
+	}*/
 
     
+    private static boolean shouldReturnHtml(Request request) {
+        String accept = request.headers("Accept");
+        return accept != null && accept.contains("text/html");
+    }
     
-  public static void main(String[] args) {
+  /*public static void main(String[] args) {
       
 
    port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/public");
-    
-    
-    new UserController(new UserService());
-    
+     new UserController(new UserService());*/
+   
+
     Gson gson = new Gson();
+   
     
-     get("/users/001", (req, res) -> {
-            User user001 = new User("001", "Summer Sanchez", "summer@rnm.com", "Summer Time", "rickandmorty.com");
-            return user001;
+       
+    private void setupRoutes() {
+        get("/users/001", (req, res) -> {
+            Map<String, Object> data = new HashMap<>();
+            data.put("id", "001");
+            data.put("name", "Summer Sanchez");
+            return data;
         }, gson::toJson);
 
-        
-	
-     
+            
    get("/topnav", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             attributes.put("user", "Summer");
