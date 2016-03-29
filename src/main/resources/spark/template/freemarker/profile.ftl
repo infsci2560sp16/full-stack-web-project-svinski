@@ -52,7 +52,9 @@
             </div>
             </div>
             <h3>Your friends</h3>
-                <p>
+                <#list ['Rick Sanchez', 'Abradolf Lincler', 'Bird Person'] as friends>
+                     ${friends?counter}: ${friends}
+                </#list>
 
         </div> <!-- /container -->
        </div>

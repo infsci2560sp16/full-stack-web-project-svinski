@@ -18,6 +18,7 @@ import com.heroku.sdk.jdbc.DatabaseUrl;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.SparkBase.port;
@@ -30,33 +31,54 @@ import static test1.JsonUtil.json;
  */
 public class Main {
     
+    public Main(){
+        ftlRoutes();
+    }
+       
+    private void ftlRoutes(){
+    get("/topnav", (request, response) -> {
+                Map<String, Object> attributes = new HashMap<>();
+                // user
+                attributes.put("user", "Summer");                
+                return new ModelAndView(attributes, "topnav.ftl");
+            }, new FreeMarkerEngine());
     
+    get("/calendar", (request, response) -> {
+                Map<String, Object> attributes = new HashMap<>();
+                // user
+                attributes.put("user", "Summer");                
+                return new ModelAndView(attributes, "calendar.ftl");
+            }, new FreeMarkerEngine());
     
-    
-    /*Gson gson = new Gson();
-    
-    private void setupRoutes(){          
-                     
-                     
-            
-           /* get("/api/users",(req, res) -> {
-            ArrayList<> allUsers = new ArrayList<>
-            allUsers =UserService.getAllUsers();
-            return allUsers;
-            }, gson::toJson);
-                        
-                      
-            
-            get("/api/event/001", (req, res) -> {
-                Map<String, Object> eventData = new HashMap<>();
-               
 
+    get("/guestcalendar", (request, response) -> {
+                Map<String, Object> attributes = new HashMap<>();
+                // user
+                attributes.put("user", "Guest");                
+                return new ModelAndView(attributes, "guestcalendar.ftl");
+            }, new FreeMarkerEngine());
+    
+
+    get("/profile", (request, response) -> {
+                Map<String, Object> attributes = new HashMap<>();
+                // user
+                attributes.put("user", "Summer");
                 
+                return new ModelAndView(attributes, "profile.ftl");
+            }, new FreeMarkerEngine());
+    
+    get("/header", (request, response) -> {
+                Map<String, Object> attributes = new HashMap<>();
+                // user
+                attributes.put("user", "Summer");
                 
-            });
-            
-    }*/
+                return new ModelAndView(attributes, "header.ftl");
+            }, new FreeMarkerEngine());                
                 
+    
+    
+    }
+           
   
     
     public static void main(String[] args){
@@ -64,10 +86,9 @@ public class Main {
         port(Integer.valueOf(System.getenv("PORT")));
          staticFileLocation("/public");
     
-       Object a = new AddUserController();
-       Object b= new UserController();
-       Object c = new ftlRoutes();
-    }
+       new AddUserController();
+       new UserController();
+       }
     
 }
 
