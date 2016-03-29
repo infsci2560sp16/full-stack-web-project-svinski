@@ -22,7 +22,7 @@ public class ftlRoutes {
                 Map<String, Object> attributes = new HashMap<>();
                 // message
                 attributes.put("user", "Summer");                
-                return new ModelAndView(attributes, "home.ftl");
+                return new ModelAndView(attributes, "topnav.ftl");
             }, new FreeMarkerEngine());
     }
     

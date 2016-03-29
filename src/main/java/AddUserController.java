@@ -17,7 +17,7 @@ import static spark.Spark.post;
 public class AddUserController {
     
     public AddUserController(){
-    post("/api/add_user", (req, res) -> {
+    post("/newuser", (req, res) -> {
             	String name = req.queryParams("name");
                 String email  = req.queryParams("email");
                 String bizname = req.queryParams("bizname");

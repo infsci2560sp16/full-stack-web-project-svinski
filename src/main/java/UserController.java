@@ -18,7 +18,7 @@ import static test1.JsonUtil.toJson;
 public class UserController {
 
 	public UserController() {
-              get("/api/users", (req, res) -> {
+              get("/users", (req, res) -> {
                 Map<String, User> userList = new HashMap<>();
                 User user001 = new User("Summer Sanchez", "summer@randm.com", "Summer Sol", "rickandmorty.com");
                 userList.put(user001.getId(), user001);

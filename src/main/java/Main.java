@@ -83,6 +83,7 @@ public class Main {
          staticFileLocation("/public");
     
         new AddUserController();
+        new UserController();
         new ftlRoutes();
     }
     
