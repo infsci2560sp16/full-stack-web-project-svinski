@@ -10,6 +10,8 @@ import static spark.Spark.*;
 import spark.template.freemarker.FreeMarkerEngine;
 import spark.ModelAndView;
 import static spark.Spark.get;
+        
+import com.google.gson.Gson;
 
 import com.heroku.sdk.jdbc.DatabaseUrl;
 
@@ -22,7 +24,18 @@ public class Main {
     staticFileLocation("/public");
     
     new UserController(new UserService());
-    new UserControllerIntegrationTest();
+    
+    Gson gson = new Gson();
+    
+     get("/users/001", (req, res) -> {
+            Map<String, Object> data = new HashMap<>();
+            data.put("id", "001");
+            data.put("name", "Summer Sanchez");
+            data.put("email", "summer@rickandmorty.com" );
+            return data;
+        }, gson::toJson);
+
+        
 	
      
    get("/topnav", (request, response) -> {
