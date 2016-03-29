@@ -32,7 +32,7 @@ public class Main {
   
     get("/calendar", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
-            attributes.put("message", "This is a test");
+            attributes.put("user", "Summer");
 
             return new ModelAndView(attributes, "calendar.ftl");
         }, new FreeMarkerEngine());
