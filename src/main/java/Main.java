@@ -55,11 +55,12 @@ public class Main {
     
 
         new ftlRoutes();
+        new AddUserController();
+        new UserController();
        }
 
-       Object a = new AddUserController();
-       Object b= new UserController();
-       Object c = new ftlRoutes();
+       
+       
     }
     
 
