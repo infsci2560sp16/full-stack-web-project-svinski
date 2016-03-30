@@ -8,6 +8,7 @@
 import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import static spark.Spark.*;
 
 
@@ -17,9 +18,21 @@ public class UserController {
 
 	public UserController() {
               get("/users", (req, res) -> {
-                Map<String, User> userList = new HashMap<>();
+                /*Map<String, User> userList = new HashMap<>();
                 User user001 = new User("Summer Smith", "summer@randm.com", "Summer Sol", "rickandmorty.com");
                 userList.put(user001.getId(), user001);
+                Gson gson = new Gson();
+                return gson.toJson(userList);*/
+                String id = UUID.randomUUID().toString();
+                Map<String, Object> userList = new HashMap<>();
+                userList.put("id", id);
+                userList.put("username", "summersol");
+                userList.put("name", "Summer Smith");
+                userList.put("email", "summer@randm.com");
+                userList.put("bizname", "Summer Sol");
+                userList.put("website", "rickandmorty.com");
+                userList.put("craft", "Jewelry Making");
+                userList.put("about", "I live in the desert and make things with turquoise.");
                 Gson gson = new Gson();
                 return gson.toJson(userList);
             });
