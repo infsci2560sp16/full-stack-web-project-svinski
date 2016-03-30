@@ -326,3 +326,15 @@ body {
 }
 
 .btn{}
+
+table {
+    width: 100%;
+    heigth: 100%;
+    text-align: center;
+       
+}
+
+th, td {
+    padding: 3px;
+    border-bottom: 1px solid #ddd;
+}
