@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<events>
 
-	<event>
+
+<events xmlns="http://www.w3schools.com"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.w3schools.com eventschema.xds">
+
+	<event id="001">
             <eventname>Knit Chat</eventname>
             <date>04/24/2016</date>
             <eventlocation>
@@ -20,7 +24,7 @@
             <description>Come knit and talk!</description>
         </event>
 	
-        <event>
+        <event id="002">
             <eventname>Night Market and Craft Show</eventname>
             <date>04/30/2016</date>
             <eventlocation>
@@ -31,10 +35,10 @@
                 <zip>15211</zip>
             </eventlocation>
             <eventtime>
-                <starttime>8pm</starttime>
-                <endtime>11pm</endtime>
+                <starttime>8:00pm</starttime>
+                <endtime>11:00pm</endtime>
             </eventtime>
-            <cost>no</cost>
+            <cost fee="false">0.00</cost>
             <craft>Multiple</craft>
             <description>An nighttime craft show.</description>
         </event>

@@ -85,6 +85,10 @@ function myFunction(xml) {
     "</td><td>" +
     x[i].getElementsByTagName("date")[0].childNodes[0].nodeValue +
     "</td><td>"+
+    x[i].getElementsByTagName("locationname")[0].childNodes[0].nodeValue +
+    "</td><td>"+
+    x[i].getElementsByTagName("eventtime")[0].childNodes[0].nodeValue +
+    "</td><td>"+
     x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
     "</td></tr>";
   }
@@ -107,8 +111,8 @@ function loadJSON(){
                   // jsonObj variable now contains the data structure and can
                   // be accessed as jsonObj.name and jsonObj.country.
 		 document.getElementById("username").innerHTML = "Username: " + jsonObj.username;
+                 document.getElementById("fullname").innerHTML = "Name: " + jsonObj.name;
                  document.getElementById("email").innerHTML = "Email" + jsonObj.email;
-                 document.getElementById("fullname").innerHTML = "Name: " + jsonObj.fullname;
                  document.getElementById("bizname").innerHTML = "Business Name: " + jsonObj.bizname;
 		 document.getElementById("website").innerHTML = "Website: " + jsonObj.website;
 		 document.getElementById("craft").innerHTML = "Craft: " + jsonObj.craft;

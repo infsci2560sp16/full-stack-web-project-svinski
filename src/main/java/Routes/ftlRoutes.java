@@ -15,11 +15,11 @@ public class ftlRoutes {
     
     Gson gson = new Gson();
     
-    private void ftlRoutes(){
+    public ftlRoutes(){
         setRoutes();
     }
         
-        private void setRoutes(){
+    private void setRoutes(){
         
     get("/topnav", (request, response) -> {
                 Map<String, Object> attributes = new HashMap<>();
