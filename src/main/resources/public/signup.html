@@ -33,6 +33,14 @@
           <div class="masthead clearfix">
             <div class="inner">
                 <h2 class="masthead-brand">Crafter Alliance</h2>
+                 <nav>
+                  <ul class="nav masthead-nav">
+                      
+                  <li><a href="http://secret-river-4272.herokuapp.com/guestcalendar">Explore Events</a></li>
+                  <li><a href="index.html">Landing Page</a></li>
+                  
+                </ul>
+              </nav>
                 
             </div>
           </div>
@@ -40,9 +48,9 @@
             <div class="opacity">
           <div class="content">
              
-              <!--Placeholder for sign up-->
+              <!--Placeholder for sign up
               <form class="form-signin">
-                <h3 class="title-header">Enter the following information:</h3>
+                <h3 class="title-header">Enter the following information to create an account:</h3>
         
                 <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus><br>
@@ -56,11 +64,38 @@
                         <input type="checkbox" value="remember-me"> Remember me
                      </label>
                     </div>
-                <!--takes user to page to add more profile info-->           
-                <a href="editprofile.html" class="btn btn-default">Log in</a>
+                <!--takes user to page to add more profile info         
+                <a href="editprofile.html" class="btn btn-default">Log in</a>-->
+                <form>
+
+                 <p>Username: 
+                     <input type="text" name="username" id="username"><br>
+                </p>
+                <p>Full name:
+                     <input type="text" name="name" id="name">
+                </p>  
+                 <p>Email Address:
+                     <input type="text" name="email" id="email"><br>
+                </p> 
+                <p>Business  name:
+                     <input type="text" name="business" id="business"><br>
+                </p>
+                <p>Website:
+                     <input type="text" name="website" id="website"><br>
+                </p>         
+                <p>Your Craft:
+                    <input type="text" name="craft" id="craft"><br>
+                </p>
+                <p>About: 
+                     <input type="text" name="about" maxlength="1000" id="about"><br>
+                </p>
+                
+               <!-- Save button will change content of .profile-div to user responses-->
+                    <input id="Save" type="button" value="Save" onclick="addUser();" />
+                    <br />
+                </form>
         
-             </form>
-          </div>
+             </div>
               
               
        </div>

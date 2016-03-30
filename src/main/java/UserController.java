@@ -18,7 +18,7 @@ public class UserController {
 	public UserController() {
               get("/users", (req, res) -> {
                 Map<String, User> userList = new HashMap<>();
-                User user001 = new User("Summer Sanchez", "summer@randm.com", "Summer Sol", "rickandmorty.com");
+                User user001 = new User("Summer Smith", "summer@randm.com", "Summer Sol", "rickandmorty.com");
                 userList.put(user001.getId(), user001);
                 Gson gson = new Gson();
                 return gson.toJson(userList);

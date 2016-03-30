@@ -8,6 +8,7 @@ $(document).ready(function(){
 function updateProfile() {
     var username =  document.getElementById("username").value;
     var name =  document.getElementById("name").value;
+    var email =  document.getElementById("email").value;
     var business =  document.getElementById("business").value;
     var website =  document.getElementById("website").value;
     var about =  document.getElementById("about").value;
@@ -16,7 +17,7 @@ function updateProfile() {
     var craft_3 = document.getElementById("craft3").checked;
     var craft_4 = document.getElementById("craft4").checked;
      
-    document.getElementById("profile-div").innerHTML = "Username:" + username + "<br />Full Name:"+ name + "<br />Business:" + 
+    document.getElementById("profile-div").innerHTML = "Username:" + username + "<br />Full Name:"+ name + "<br />Email Address:"+ email+ "<br />Business:" + 
             business + "<br />Website:"+ website + "<br/> Crafts: <br/> Jewelry Making:"+ craft_1 + "<br />Wood Work:"+ craft_2 +
             "<br />Paper Craft: " + craft_3 + "<br />Embroidery: " +craft_4 + "<br />About:"+ about;
 }
@@ -65,12 +66,12 @@ function loadXMLDoc() {
     else if (ActiveXObject("Microsoft.XMLDOM")) {
         xmlhttp = new ActiveXObject("Microsoft.XMLDOM");
         xmlhttp.async = false;
-        xmlhttp.load("xml/cd.xml");
+        xmlhttp.load("xml/eventlist.xml");
         myFunction(xmlhttp);
     }
    
   };
-  xmlhttp.open("GET", "xml/cd.xml", true);
+  xmlhttp.open("GET", "xml/eventlist.xml", true);
   xmlhttp.send();
 }
 function myFunction(xml) {
@@ -125,13 +126,13 @@ function addUser() {
     $.ajax({
         type: 'POST',
         contentType: 'application/json',
-        url: "http://secret-river-4272.herokuapp.com/users",
+        url: "json/users.json",
         dataType: "json",
         data: formToJSON(),
         success: function(data, textStatus, jqXHR){
             alert('User profile successfully added');
-            $('#btnDelete').show();
-            $('#userId').val(data.id);
+            //$('#btnDelete').show();
+            //$('#userId').val(data.id);
         },
         error: function(jqXHR, textStatus, errorThrown){
             alert('addUser error: ' + textStatus);
@@ -142,12 +143,13 @@ function addUser() {
 // Helper function to serialize all the form fields into a JSON string
 function formToJSON() {
     return JSON.stringify({
+        "username": $('#username').val(),
         "name": $('#name').val(),
-        "grapes": $('#grapes').val(),
-        "country": $('#country').val(),
-        "region": $('#region').val(),
-        "year": $('#year').val(),
-        "description": $('#description').val()
+        "email": $('#email').val(),
+        "bizname": $('#bizname').val(),
+        "website": $('#website').val(),
+        "craft": $('#craft').val(),
+        "about": $('#about').val()
         });
 }
 
