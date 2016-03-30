@@ -58,7 +58,7 @@ public class Main {
         
         new UserController();
         
-        new AddUserController();
+       // new AddUserController();
        }
 
        
