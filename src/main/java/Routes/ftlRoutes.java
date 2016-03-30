@@ -1,17 +1,11 @@
 package Routes;
 
-
+import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
 import spark.ModelAndView;
 import static spark.Spark.get;
 import spark.template.freemarker.FreeMarkerEngine;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -19,7 +13,13 @@ import spark.template.freemarker.FreeMarkerEngine;
  */
 public class ftlRoutes {
     
+    Gson gson = new Gson();
+    
     private void ftlRoutes(){
+        setRoutes();
+    }
+        
+        private void setRoutes(){
         
     get("/topnav", (request, response) -> {
                 Map<String, Object> attributes = new HashMap<>();
@@ -39,7 +39,7 @@ public class ftlRoutes {
 
     get("/guestcalendar", (request, response) -> {
                 Map<String, Object> attributes = new HashMap<>();
-                // user
+                // guest user
                 attributes.put("user", "Guest");                
                 return new ModelAndView(attributes, "guestcalendar.ftl");
             }, new FreeMarkerEngine());
@@ -62,6 +62,6 @@ public class ftlRoutes {
             }, new FreeMarkerEngine());                
                 
     
-    
+        }   
 }
-}
+

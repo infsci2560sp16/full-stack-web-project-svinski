@@ -55,8 +55,10 @@ public class Main {
     
 
         new ftlRoutes();
-        new AddUserController();
+        
         new UserController();
+        
+        new AddUserController();
        }
 
        
