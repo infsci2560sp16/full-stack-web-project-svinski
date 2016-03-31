@@ -112,7 +112,7 @@ function loadJSON(){
                   // be accessed as jsonObj.name and jsonObj.country.
 		 document.getElementById("username").innerHTML = "Username: " + jsonObj.username;
                  document.getElementById("name").innerHTML = "Name: " + jsonObj.name;
-                 document.getElementById("email").innerHTML = "Email" + jsonObj.email;
+                 document.getElementById("email").innerHTML = "Email: " + jsonObj.email;
                  document.getElementById("bizname").innerHTML = "Business Name: " + jsonObj.bizname;
 		 document.getElementById("website").innerHTML = "Website: " + jsonObj.website;
 		 document.getElementById("craft").innerHTML = "Craft: " + jsonObj.craft;
@@ -130,13 +130,12 @@ function addUser() {
     $.ajax({
         type: 'POST',
         contentType: 'application/json',
-        url: "http://secret-river-4272.herokuapp.com/adduser",
+        url: "http://secret-river-4272.herokuapp.com/newuser",
         dataType: "json",
         data: formToJSON(),
         success: function(data, textStatus, jqXHR){
             alert('User profile successfully added');
-            //$('#btnDelete').show();
-            //$('#userId').val(data.id);
+            
         },
         error: function(jqXHR, textStatus, errorThrown){
             alert('addUser error: ' + textStatus);
