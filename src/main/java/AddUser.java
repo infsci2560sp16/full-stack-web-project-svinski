@@ -1,24 +1,26 @@
-
-import com.google.gson.Gson;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-import static spark.Spark.post;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Sarah's Laptop
  */
-public class AddUserController {
-    
-    public AddUserController(){
-    post("/newuser", (req, res) -> {
+// Import required java libraries
+import com.google.gson.Gson;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import static spark.Spark.post;
+
+// Extend HttpServlet class
+public class AddUser extends HttpServlet {
+ 
+  // Method to handle GET method request.
+  public void doGet(HttpServletRequest request,
+                    HttpServletResponse response)
+            throws ServletException, IOException
+  {
+      post("/newuser", (req, res) -> {
         
                 String username = req.queryParams("username");
             	String name = req.queryParams("name");
@@ -44,6 +46,13 @@ public class AddUserController {
                 return gson.toJson(userData);
                 
             });
-    
+                
+  }
+  // Method to handle POST method request.
+  public void doPost(HttpServletRequest request,
+                     HttpServletResponse response)
+      throws ServletException, IOException {
+     doGet(request, response);
+  }
 }
-}
+

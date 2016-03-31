@@ -1,0 +1,9 @@
+<servlet>
+        <servlet-name>AddUser</servlet-name>
+        <servlet-class>AddUser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddUser</servlet-name>
+        <url-pattern>/AddUser</url-pattern>
+    </servlet-mapping>
