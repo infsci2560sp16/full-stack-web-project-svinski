@@ -111,7 +111,7 @@ function loadJSON(){
                   // jsonObj variable now contains the data structure and can
                   // be accessed as jsonObj.name and jsonObj.country.
 		 document.getElementById("username").innerHTML = "Username: " + jsonObj.username;
-                 document.getElementById("fullname").innerHTML = "Name: " + jsonObj.name;
+                 document.getElementById("name").innerHTML = "Name: " + jsonObj.name;
                  document.getElementById("email").innerHTML = "Email" + jsonObj.email;
                  document.getElementById("bizname").innerHTML = "Business Name: " + jsonObj.bizname;
 		 document.getElementById("website").innerHTML = "Website: " + jsonObj.website;

@@ -38,7 +38,7 @@
                <table>
                 <tr><th>Your Profile</th></tr>
                  <tr><td><div id = "username"></div></td>
-                 <tr><td><div id="fullname"></div></td></tr>
+                 <tr><td><div id="name"></div></td></tr>
                  <tr><td><div id = "email"></div></td></tr>
                  <tr><td><div id = "bizname"></div></td></tr>
                  <tr><td><div id = "website"></div></td></tr>
