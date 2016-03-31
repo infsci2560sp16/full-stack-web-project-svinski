@@ -3,7 +3,7 @@
 
 <events xmlns="http://www.w3schools.com"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.w3schools.com eventschema.xds">
+xsi:schemaLocation="http://secret-river-4272.herokuapp.com/xml/eventschema.xsd">
 
 	<event id="001">
             <eventname>Knit Chat</eventname>
