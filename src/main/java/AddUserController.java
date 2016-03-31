@@ -3,6 +3,8 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import static spark.Spark.post;
 
 /*
@@ -18,7 +20,10 @@ import static spark.Spark.post;
 public class AddUserController {
     
     public AddUserController(){
+        try{
     post("/newuser", (req, res) -> {
+        
+       
         
                 String username = req.queryParams("username");
             	String name = req.queryParams("name");
@@ -42,8 +47,15 @@ public class AddUserController {
                 Gson gson = new Gson();
                 res.redirect("/signup.html");
                 return gson.toJson(userData);
+       
                 
             });
     
+
+         }catch(Exception e){
+            final JPanel panel = new JPanel();
+
+        JOptionPane.showMessageDialog(panel, "Could not add user.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 }
 }
