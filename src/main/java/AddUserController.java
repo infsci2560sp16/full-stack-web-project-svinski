@@ -24,25 +24,13 @@ public class AddUserController {
         //try{
             get("/newusers", (req, res) -> {
                 String id = UUID.randomUUID().toString();
-                Map<String, Object> newList = new HashMap<>();
-                newList.put("id", id);
-                newList.put("username", "summersol");
-                newList.put("name", "Summer Smith");
-                newList.put("email", "summer@randm.com");
-                newList.put("bizname", "Summer Sol");
-                newList.put("website", "rickandmorty.com");
-                newList.put("craft", "Jewelry Making");
-                newList.put("about", "I live in the desert and make things with turquoise.");
-                Gson gson = new Gson();
-                return gson.toJson(newList);
-               /* String username = req.queryParams("username");
+                String username = req.queryParams("username");
             	String name = req.queryParams("name");
                 String email  = req.queryParams("email");
                 String bizname = req.queryParams("bizname");
                 String website = req.queryParams("website");
                 String craft = req.queryParams("craft");
                 String about = req.queryParams("about");
-            	String id = UUID.randomUUID().toString();
                 
                 Map<String, Object> userData = new HashMap<>();
                 userData.put("id", id);
@@ -53,6 +41,13 @@ public class AddUserController {
                 userData.put("website", website);
                 userData.put("craft", craft);
                 userData.put("about", about);
+                Gson gson = new Gson();
+                return gson.toJson(userData);
+               /* 
+            	
+                
+                Map<String, Object> userData = new HashMap<>();
+                
                 Gson gson = new Gson();                
                 return gson.toJson(userData);*/
             });
