@@ -21,9 +21,21 @@ import static spark.Spark.post;
 public class AddUserController {
     
     public AddUserController(){
-        try{
+        //try{
             post("/newusers", (req, res) -> {
-                String username = req.queryParams("username");
+                String id = UUID.randomUUID().toString();
+                Map<String, Object> userList = new HashMap<>();
+                userList.put("id", id);
+                userList.put("username", "summersol");
+                userList.put("name", "Summer Smith");
+                userList.put("email", "summer@randm.com");
+                userList.put("bizname", "Summer Sol");
+                userList.put("website", "rickandmorty.com");
+                userList.put("craft", "Jewelry Making");
+                userList.put("about", "I live in the desert and make things with turquoise.");
+                Gson gson = new Gson();
+                return gson.toJson(userList);
+               /* String username = req.queryParams("username");
             	String name = req.queryParams("name");
                 String email  = req.queryParams("email");
                 String bizname = req.queryParams("bizname");
@@ -42,14 +54,15 @@ public class AddUserController {
                 userData.put("craft", craft);
                 userData.put("about", about);
                 Gson gson = new Gson();                
-                return gson.toJson(userData);
+                return gson.toJson(userData);*/
             });
         
 
-         }catch(Exception e){
+         /*}catch(Exception e){
             final JPanel panel = new JPanel();
 
         JOptionPane.showMessageDialog(panel, "Could not add user.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+}*/
 }
 }
