@@ -41,8 +41,7 @@ public class AddUserController {
                 userData.put("website", website);
                 userData.put("craft", craft);
                 userData.put("about", about);
-                Gson gson = new Gson();
-                
+                Gson gson = new Gson();                
                 return gson.toJson(userData);
             });
         
