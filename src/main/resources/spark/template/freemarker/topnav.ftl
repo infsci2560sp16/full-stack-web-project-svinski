@@ -11,11 +11,11 @@
                       </#if>  
 
                      <#if user == "Guest">
-                     <li class="cal"><a href="http://secret-river-4272.herokuapp.com/guestcalendar">Events</a></li>
+                     <li class="cal"><a href="/guestcalendar">Events</a></li>
                      <li class="cal"><a href="signup.html">Sign Up</a></li>
                      <#else>
-                    <li class="a"><a href="http://secret-river-4272.herokuapp.com/calendar">Events</a></li>
-                    <li class="b"><a href="http://secret-river-4272.herokuapp.com/profile">Your Profile</a></li>
+                    <li class="a"><a href="/calendar">Events</a></li>
+                    <li class="b"><a href="/profile">Your Profile</a></li>
                     <li class="c"><a href="index.html">Sign Out</a></li>
                     </#if>
                   
