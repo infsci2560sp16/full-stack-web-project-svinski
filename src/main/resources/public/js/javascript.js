@@ -130,7 +130,7 @@ function addUser() {
     $.ajax({
         type: 'POST',
         contentType: 'application/json',
-        url: "http://secret-river-4272.herokuapp.com/newuser",
+        url: "/newuser",
         dataType: "json",
         data: formToJSON(),
         success: function(data, textStatus, jqXHR){
