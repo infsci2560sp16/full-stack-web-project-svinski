@@ -22,19 +22,19 @@ public class AddUserController {
     
     public AddUserController(){
         //try{
-            post("/newusers", (req, res) -> {
+            get("/newusers", (req, res) -> {
                 String id = UUID.randomUUID().toString();
-                Map<String, Object> userList = new HashMap<>();
-                userList.put("id", id);
-                userList.put("username", "summersol");
-                userList.put("name", "Summer Smith");
-                userList.put("email", "summer@randm.com");
-                userList.put("bizname", "Summer Sol");
-                userList.put("website", "rickandmorty.com");
-                userList.put("craft", "Jewelry Making");
-                userList.put("about", "I live in the desert and make things with turquoise.");
+                Map<String, Object> newList = new HashMap<>();
+                newList.put("id", id);
+                newList.put("username", "summersol");
+                newList.put("name", "Summer Smith");
+                newList.put("email", "summer@randm.com");
+                newList.put("bizname", "Summer Sol");
+                newList.put("website", "rickandmorty.com");
+                newList.put("craft", "Jewelry Making");
+                newList.put("about", "I live in the desert and make things with turquoise.");
                 Gson gson = new Gson();
-                return gson.toJson(userList);
+                return gson.toJson(newList);
                /* String username = req.queryParams("username");
             	String name = req.queryParams("name");
                 String email  = req.queryParams("email");
