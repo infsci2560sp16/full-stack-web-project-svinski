@@ -130,7 +130,7 @@ function addUser() {
     $.ajax({
         type: 'POST',
         contentType: 'application/json',
-        url: "json/newusers.json",
+        url: "/newusers",
         dataType: "json",
         data: formToJSON(),
         success: function(data, textStatus, jqXHR){

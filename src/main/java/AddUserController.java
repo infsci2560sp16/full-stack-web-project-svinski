@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import static spark.Spark.get;
 import static spark.Spark.post;
 
 /*
@@ -21,10 +22,7 @@ public class AddUserController {
     
     public AddUserController(){
         try{
-    post("/newuser", (req, res) -> {
-        
-       
-        
+            get("/newusers", (req, res) -> {
                 String username = req.queryParams("username");
             	String name = req.queryParams("name");
                 String email  = req.queryParams("email");
@@ -43,14 +41,11 @@ public class AddUserController {
                 userData.put("website", website);
                 userData.put("craft", craft);
                 userData.put("about", about);
-                
                 Gson gson = new Gson();
-                res.redirect("/signup.html");
-                return gson.toJson(userData);
-       
                 
+                return gson.toJson(userData);
             });
-    
+        
 
          }catch(Exception e){
             final JPanel panel = new JPanel();
