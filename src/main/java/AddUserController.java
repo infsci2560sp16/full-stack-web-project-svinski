@@ -22,7 +22,7 @@ public class AddUserController {
     
     public AddUserController(){
         try{
-            get("/newusers", (req, res) -> {
+            post("/newusers", (req, res) -> {
                 String username = req.queryParams("username");
             	String name = req.queryParams("name");
                 String email  = req.queryParams("email");

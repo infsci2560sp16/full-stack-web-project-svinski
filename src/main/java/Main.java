@@ -54,11 +54,11 @@ public class Main {
          staticFileLocation("/public");
     
 
-        Object route = new ftlRoutes();
+        new ftlRoutes();
         
-        Object user = new UserController();
+        new UserController();
         
-        Object addUser = new AddUserController();
+        new AddUserController();
         
        }
 
