@@ -152,6 +152,11 @@ function loadFriends(){
             http_request.send();
          }
 
+function loadProfile(){
+    loadJSON();
+    loadFriends();
+}
+
 function addUser() {
     console.log('addUser');
     $.ajax({

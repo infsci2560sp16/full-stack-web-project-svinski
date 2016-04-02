@@ -4,8 +4,8 @@
     <#include "header.ftl"> 
 
     <script>
-       window.onload = loadJSON;
-       window.onload = loadFriends;
+       window.onload = loadProfile;
+       
 		
       </script>
 
