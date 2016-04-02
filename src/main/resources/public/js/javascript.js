@@ -125,8 +125,8 @@ function loadJSON(){
             http_request.send();
          }
          
-         function loadJSON(){
-            var data_file = "/users";
+function loadFriends(){
+            var data_file = "/friends";
             var http_request = new XMLHttpRequest();
                         // Opera 8.0+, Firefox, Chrome, Safari
                http_request = new XMLHttpRequest();
@@ -140,13 +140,10 @@ function loadJSON(){
 
                   // jsonObj variable now contains the data structure and can
                   // be accessed as jsonObj.name and jsonObj.country.
-		 document.getElementById("username").innerHTML = "Username: " + jsonObj.username;
-                 document.getElementById("name").innerHTML = "Name: " + jsonObj.name;
-                 document.getElementById("email").innerHTML = "Email: " + jsonObj.email;
-                 document.getElementById("bizname").innerHTML = "Business Name: " + jsonObj.bizname;
-		 document.getElementById("website").innerHTML = "Website: " + jsonObj.website;
-		 document.getElementById("craft").innerHTML = "Craft: " + jsonObj.craft;
-		 document.getElementById("about").innerHTML = "About: " + jsonObj.about;
+		 document.getElementById("friendusername").innerHTML = "Username: " + jsonObj.username;
+                 document.getElementById("friendname").innerHTML = "Name: " + jsonObj.name;
+                 document.getElementById("friendemail").innerHTML = "Email: " + jsonObj.email;
+                 
                   
                }
             };

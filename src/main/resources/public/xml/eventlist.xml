@@ -42,6 +42,25 @@ xsi:schemaLocation="http://secret-river-4272.herokuapp.com/xml/eventschema.xsd">
             <craft>Multiple</craft>
             <description>An nighttime craft show.</description>
         </event>
+        
+        <event id="003">
+            <eventname>Open House at the Glass Center</eventname>
+            <date>05/13/2016</date>
+            <eventlocation>
+                <locationname>Pittsburgh Glass Center</locationname>
+                <streetaddress> 3400 Penn Ave</streetaddress>
+                <city>Pittsburgh</city>
+                <state>PA</state>
+                <zip>15216</zip>
+            </eventlocation>
+            <eventtime>
+                <starttime>11:00am</starttime>
+                <endtime>4:00pm</endtime>
+            </eventtime>
+            <cost fee="false">5.00</cost>
+            <craft>Glass Blowing, Glass Fusing</craft>
+            <description>Come visit the Glass Center. Demos and art for sale!</description>
+        </event>
 	
 	
 </events>

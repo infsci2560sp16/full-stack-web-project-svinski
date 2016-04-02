@@ -5,6 +5,7 @@
 
     <script>
        window.onload = loadJSON;
+       window.onload = loadFriends;
 		
       </script>
 
@@ -52,7 +53,10 @@
   
             </div>
             </div>
-            <h3>Your friends</h3>
+            <h4>Your friends</h4>
+            <p id="friendname"></p>
+            <p id="friendusername"></p>
+            <p id="friendemail"></p>
                 
               
 

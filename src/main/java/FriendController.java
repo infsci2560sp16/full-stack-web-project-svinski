@@ -33,14 +33,14 @@ public class FriendController {
                 friendList.put("website", "rickandmorty.com");
                 friendList.put("craft", "Science");
                 friendList.put("about", "*Burp*");
-                friendList.put("id", "0001");
+               /* friendList.put("id", "0001");
                 friendList.put("username", "inferiorgenes");
                 friendList.put("name", "Abradolf Lincler");
                 friendList.put("email", "abe@rick.com");
                 friendList.put("bizname", "Emancipation");
                 friendList.put("website", "rickandmorty.com");
                 friendList.put("craft", "Wood Burning");
-                friendList.put("about", "Wood work is calming.");
+                friendList.put("about", "Wood work is calming.");*/
                 Gson gson = new Gson();
                 return gson.toJson(friendList);
             });
