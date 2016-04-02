@@ -22,7 +22,7 @@ public class AddUserController {
     
     public AddUserController(){
         //try{
-            get("/newusers", (req, res) -> {
+            post("/newuser", (req, res) -> {
                 String id = UUID.randomUUID().toString();
                 String username = req.queryParams("username");
             	String name = req.queryParams("name");

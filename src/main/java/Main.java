@@ -60,6 +60,8 @@ public class Main {
         
         new AddUserController();
         
+        new FriendController();
+        
        }
 
        

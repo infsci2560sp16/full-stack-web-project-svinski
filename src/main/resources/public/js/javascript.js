@@ -124,13 +124,43 @@ function loadJSON(){
             http_request.open("GET", data_file, true);
             http_request.send();
          }
+         
+         function loadJSON(){
+            var data_file = "/users";
+            var http_request = new XMLHttpRequest();
+                        // Opera 8.0+, Firefox, Chrome, Safari
+               http_request = new XMLHttpRequest();
+            
+			
+            http_request.onreadystatechange = function(){
+			
+               if (http_request.readyState === 4  ){
+                  // Javascript function JSON.parse to parse JSON data
+                  var jsonObj = JSON.parse(http_request.responseText);
+
+                  // jsonObj variable now contains the data structure and can
+                  // be accessed as jsonObj.name and jsonObj.country.
+		 document.getElementById("username").innerHTML = "Username: " + jsonObj.username;
+                 document.getElementById("name").innerHTML = "Name: " + jsonObj.name;
+                 document.getElementById("email").innerHTML = "Email: " + jsonObj.email;
+                 document.getElementById("bizname").innerHTML = "Business Name: " + jsonObj.bizname;
+		 document.getElementById("website").innerHTML = "Website: " + jsonObj.website;
+		 document.getElementById("craft").innerHTML = "Craft: " + jsonObj.craft;
+		 document.getElementById("about").innerHTML = "About: " + jsonObj.about;
+                  
+               }
+            };
+			
+            http_request.open("GET", data_file, true);
+            http_request.send();
+         }
 
 function addUser() {
     console.log('addUser');
     $.ajax({
         type: 'POST',
         contentType: 'application/json',
-        url: "newusers",
+        url: "newuser",
         dataType: "json",
         data: formToJSON(),
         success: function(data, textStatus, jqXHR){
